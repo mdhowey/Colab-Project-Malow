@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/mdhowey/Colab-Project-Malow/issues"
   },
-  "homepage": "https://github.com/mdhowey/Colab-Project-Malow#readme"
+  "homepage": "https://github.com/mdhowey/Colab-Project-Malow#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
 }
