@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'New User' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="form-container">
+        
+        <form action="/users" method="DELETE" id="new-user">
+
+            <h1>You are about to delete something... permanently!</h1>
+            <h3>Are you sure you want to do that?</h3>
+
+            <div class="submit-container" class="form-label">
+                <input type="submit" class="submit" name="newuser_submit" value="Cancel">
+            </div>
+            <div class="submit-container" class="form-label">
+                <input type="submit" class="submit" name="newuser_submit" value="Delete">
+            </div>
+        
+        </form>
+    
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

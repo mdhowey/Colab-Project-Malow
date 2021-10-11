@@ -15,6 +15,18 @@ router.get('/add', function (req, res) {
 });
 
 // == Show == //
-router.get('/show')
+router.get('/show', (req,res) => {
+    res.render('users/show');
+});
+
+// == Edit == //
+router.get('/edit', (req,res) => {
+    res.render('users/edit');
+});
+
+// == Delete == //
+router.get('/delete', (req,res) => {
+    res.render('users/delete');
+});
 
 module.exports = router;
