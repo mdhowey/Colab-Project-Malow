@@ -149,6 +149,54 @@ ul {
     margin: 1em 0;
 }
 
+/* Form */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8em;
+}
+
+.input-card {
+    margin-top: 1.5em;
+}
+
+.form-label {
+    margin-top: 1em;
+}
+
+.form-input,
+.text-area {
+    padding: 0.5em;
+    margin-top: 0.25em;
+    width: 32em;
+    border: 1px solid #222;
+    border-radius: 0.5em;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.submit {
+    padding: 0.6em;
+    font-size: 1.1em;
+    background-color: #444cf7;
+    border-radius: 0.4em;
+    color: #FFF;
+}
+
+.submit:hover,
+.submit:focus {
+    background-color: #e5e5f7;
+    box-shadow: 0.2em 0.2em 0.4em #444cf7;
+    color: #222;
+    cursor: pointer;
+}
+
 /* Footer */
 .footer-container {
     display: flex;
