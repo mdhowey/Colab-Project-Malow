@@ -25,6 +25,22 @@
     
     <%- include('../partials/profile.ejs') %>
     
+    <div class="user-photos-container">
+
+        <% photos.forEach(photo => { %> 
+
+            <div class="user-photo-card">
+
+                <img src="<%= photo.img %> " alt="User Photo">
+                <p><%= photo.tagline %></p>
+                <p><%= photo.location %></p>
+
+            </div>
+
+        <% }) %> 
+
+    </div>
+
     <%- include('../partials/footer.ejs') %>
 
 </body>

@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const PORT = 4000;
 
 // ==== Internal Dependencies ==== //
-const user = require('./controllers/user_controllers');
+const controllers = require('./controllers');
 
 // == Invoke express == //
 const app = express();
@@ -21,7 +21,8 @@ app.use(express.urlencoded({ extended: false}));
 
 app.use(methodOverride('_method'));
 
-app.use('/users', user);
+app.use('/users', controllers.user);
+// app.use('/photos', controllers.photo);
 
 // ==== Logger ==== //
 app.use((req, res, next) => {

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
+const { Photo, User } = require('../models');
 
 /* ==== USER ROUTES ==== */
 
@@ -42,17 +42,15 @@ router.get('/:userId', (req, res, next) => {
             req.error = error;
             return next();
         }
-        const context = {
-            user: foundUser,
-        }
-        // Photo.find({ user: req.params.userId}, (error, allImages) => {
-        //     const context = {
-        //         user: foundUser,
-        //         images: allImages,
-        //     };
+        Photo.find({ userId: req.params.userId}, (error, allPhotos) => {
+            if (error) return console.log(error);
+            const context = {
+                user: foundUser,
+                photos: allPhotos,
+            };
         
             return res.render('../views/users/show.ejs', context)
-        // });
+        });
     });
 });
 

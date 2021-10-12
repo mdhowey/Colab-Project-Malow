@@ -278,15 +278,23 @@ ul {
     padding: 0 0 2em 10em;
 }
 
-/* .user-photos-container {
+.user-photos-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-} */
+    margin-bottom: 5em;
+} 
 
-/* .user-photo-card {
-    
-} */
+.user-photo-card {
+    background-color: #CC3FA3;
+    padding: 0.75em;
+    margin: 2.5em;
+}
+
+.user-photo-card img {
+    max-width: 15em;
+    max-height: 9em;
+}
 
 /* Delete View */
 .delete-btn-container {
