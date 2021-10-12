@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'View Photo' }) %> 
+
+    <div class="solo-photo-container">
+
+        <img src="<%= photo.img %> " alt="Solo photo"/>
+
+        <div class="solo-photo-row">
+
+            <!-- <form action="/users/" method="GET" id="new-user"> -->
+                <!-- <div class="submit-container form-label"> -->
+                <input type="submit" class="submit cancel" value="Cancel">
+                <!-- </div> -->
+            <!-- </form> -->
+
+            <!-- <form action="/users/?_method=DELETE" method="POST" id="new-user"> -->
+                <!-- <div class="submit-container form-label"> -->
+                <input type="submit" class="submit danger" value="Delete">
+                <!-- </div> -->
+            <!-- </form> -->
+
+        </div>
+
+        <div class="solo-desc-container">
+            <p><%= photo.description %> </p>
+        </div>
+
+    </div>
+
+<%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

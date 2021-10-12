@@ -55,4 +55,31 @@ Photo.deleteMany({}, function (error, deletedPhotos) {
     };
 });
 
+/* ==== PHOTO ROUTES ==== */
+//== Show Photo Index == //
+// router.get('/', function (req, res) {
+    
+//     Photo.find({}, (error, users) => {
+//         if (error) return console.log(error);
+
+//         const context = {
+//             photos,
+//         }
+
+//         res.render('photos/index', context);
+//     });
+// });
+
+// == Show Solo Photo == //
+router.get('/:photoId', (req, res, next) => {
+    Photo.find({ photoId: req.params.photoId}, (error, photo) => {
+        if (error) return console.log(error);
+        const context = {
+            photos: photo,
+        };
+    
+        return res.render('../views/photos/show_photo.ejs', context)
+    });
+});
+
 module.exports = Photo;
