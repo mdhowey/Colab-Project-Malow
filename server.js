@@ -10,6 +10,8 @@ const user = require('./controllers/user_controllers');
 const app = express();
 
 // ==== Middleware ==== //
+require("./config/db.connection");
+
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
