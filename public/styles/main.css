@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #082032;
+    background-color: #1B5680;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -17,8 +17,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #2C394B;
-    box-shadow: 0.1em 0.1em 0.4em #FF4C29;
+    background-color: #802164;
+    box-shadow: 0.1em 0.1em 0.4em #7FFF0D;
 }
 
 .col-30 {
@@ -39,8 +39,8 @@ ul {
 }
 
 #icon-background {
-    color: #334756;
-    background-color: #2C394B;
+    color: #CC3FA3;
+    background-color: #802164;
     margin: auto 0;
     padding: 0 1em 0 0.5em;
 }
@@ -50,13 +50,13 @@ ul {
     padding: 0.3em;
     margin: 1em 0.5em;
     font-size: 1.2em;
-    background-color: #3CA55C;
+    background-color: #478014;
     border-radius: 0.25em;
 }
 
 #dropdown {
     position: relative;
-    background-color: #757E8A;
+    background-color: #1B5680;
     border: 1px solid #FFF;
 }
 
@@ -67,8 +67,8 @@ ul {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #334756;
-    box-shadow: 0.1em 0.1em 0.4em #FF4C29;
+    background-color: #802164;
+    /* box-shadow: 0.05em 0.05em 0.4em #7FFF0D; */
     border-bottom-left-radius: 0.25em;
     border-bottom-right-radius: 0.25em;
     margin-top: 0.5em;
@@ -76,14 +76,14 @@ ul {
 }
 
 #myDropdown a:hover {
-    color: #FFF;
-    background-color: #5865F2;
+    color: #202225;
+    background-color: #7FFF0D;
 }
 
 .nav li:hover,
 .nav li:focus {
-    background-color: #6aa57c;
-    box-shadow: 0.1em 0.1em 0.4em #6D78F4;
+    background-color: #7FFF0D;
+    box-shadow: 0.1em 0.1em 0.4em #CC3FA3;
 }
 
 .nav a {
@@ -156,7 +156,7 @@ ul {
     justify-content: center;
     align-items: center;
     margin-top: 8em;
-    color: #FFF;
+    color: #7FFF0D;
 }
 
 .input-card {
@@ -165,7 +165,7 @@ ul {
 
 .form-label {
     margin-top: 1em;
-    color: #FFF;
+    color: #7FFF0D;
 }
 
 .form-input,
@@ -189,16 +189,22 @@ ul {
 .submit {
     padding: 0.6em;
     font-size: 1.1em;
-    background-color: #6D78F4;
+    background-color: #7FFF0D;
     border-radius: 0.4em;
-    color: #FFF;
+    color: #202225;
+    border: none;
 }
 
 .submit:hover,
 .submit:focus {
-    background-color: #5b67ec;
-    box-shadow: 0.2em 0.2em 0.4em #6D78F4;
+    background-color: #478014;
+    color: #FFF;
+    box-shadow: 0.2em 0.2em 0.4em #CC3FA3;
     cursor: pointer;
+}
+
+#user_submit {
+    margin: 2em 0 4em 0;
 }
 
 /* Delete View */
@@ -209,16 +215,19 @@ ul {
 }
 
 .submit.cancel {
-    background-color: #3CA55C;
+    background-color: #478014;
+    color: #FFF;
+    font-size: 1.2em;
 }
 
 .submit.cancel:hover {
-    background-color: #6aa57c;
+    background-color: #7FFF0D;
     color: #202225;
 }
 
 .submit.danger {
-    background-color: red;
+    background-color: #FF4C29;
+    font-size: 1em;
 }
 
 .submit.danger:hover {
@@ -231,11 +240,11 @@ ul {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: #2C394B;
+    background-color: #802164;
     position: fixed;
     bottom: 0;
 }
 
 .footer {
-    color: #FFF;
+    color: #7FFF0D;
 }
