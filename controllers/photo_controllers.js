@@ -15,6 +15,24 @@ Photo.deleteMany({}, function (error, deletedPhotos) {
                 tagline: 'test tagline 1',
             },
             {
+                userId: '6165daefd9a3f375c7ba8e25',
+                img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
+                description: 'test description 1',
+                tagline: 'test tagline 1',
+            },
+            {
+                userId: '6165daefd9a3f375c7ba8e25',
+                img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
+                description: 'test description 1',
+                tagline: 'test tagline 1',
+            },
+            {
+                userId: '6165daefd9a3f375c7ba8e25',
+                img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
+                description: 'test description 1',
+                tagline: 'test tagline 1',
+            },
+            {
                 userId: '6165d13dd8c52d1da3bdeeb4',
                 img: 'https://c8.alamy.com/compes/crj923/servicio-al-cliente-joven-hombre-con-corse-haciendo-firmar-el-o-k-crj923.jpg',
                 description: 'test description 2',
