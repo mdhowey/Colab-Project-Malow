@@ -6,7 +6,16 @@ const User = require('../models/User');
 
 // == Index == //
 router.get('/', function (req, res) {
-    res.render('users/index');
+    
+    User.find({}, (error, users) => {
+        if (error) return console.log(error);
+
+        const context = {
+            users,
+        }
+
+        res.render('users/index', context);
+    });
 });
 
 // == Add == //
@@ -14,9 +23,37 @@ router.get('/add', function (req, res) {
     res.render('users/add');
 });
 
+router.post('/', (req, res) => {
+    console.log('req.body', req.body);
+    User.create( req.body, (error, newUser) => {
+        if (error) return console.log(error);
+
+        console.log(newUser);
+
+        return res.redirect('/users');
+    });
+});
+
 // == Show == //
-router.get('/show', (req,res) => {
-    res.render('users/show');
+router.get('/:id', (req, res, next) => {
+    User.findById(req.params.id, (error, foundUser) => {
+        if(error) {
+            console.log(error);
+            req.error = error;
+            return next();
+        }
+        const context = {
+            user: foundUser,
+        }
+        // Photo.find({ user: req.params.id}, (error, allImages) => {
+        //     const context = {
+        //         user: foundUser,
+        //         images: allImages,
+        //     };
+        
+            return res.render('../views/users/show.ejs', context)
+        // });
+    });
 });
 
 // == Edit == //
