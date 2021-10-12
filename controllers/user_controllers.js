@@ -35,8 +35,8 @@ router.post('/', (req, res) => {
 });
 
 // == Show == //
-router.get('/:id', (req, res, next) => {
-    User.findById(req.params.id, (error, foundUser) => {
+router.get('/:userId', (req, res, next) => {
+    User.findById(req.params.userId, (error, foundUser) => {
         if(error) {
             console.log(error);
             req.error = error;
@@ -45,7 +45,7 @@ router.get('/:id', (req, res, next) => {
         const context = {
             user: foundUser,
         }
-        // Photo.find({ user: req.params.id}, (error, allImages) => {
+        // Photo.find({ user: req.params.userId}, (error, allImages) => {
         //     const context = {
         //         user: foundUser,
         //         images: allImages,
@@ -57,8 +57,30 @@ router.get('/:id', (req, res, next) => {
 });
 
 // == Edit == //
-router.get('/edit', (req,res) => {
-    res.render('users/edit');
+router.get('/:userId/edit', (req,res) => {
+    User.findById(req.params.userId, (error, foundUser) => {
+        if (error) return console.log(error);
+
+        return res.render('users/edit.ejs', { user: foundUser });
+    });
+});
+
+/* Update */
+router.put('/:userId', (req, res) => {
+    User.findByIdAndUpdate(
+        req.params.userId,
+        {
+            $set: req.body
+        },
+        {
+            new: true
+        },
+        (error, updatedUser) => {
+            if (error) return console.log(error);
+
+            return res.redirect(`/users/${updatedUser.id}`);
+        }
+    );
 });
 
 // == Delete == //

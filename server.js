@@ -1,5 +1,6 @@
 // ==== External Dependencies ==== //
 const express = require('express');
+const methodOverride = require('method-override');
 
 const PORT = 4000;
 
@@ -17,6 +18,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: false}));
+
+app.use(methodOverride('_method'));
 
 app.use('/users', user);
 

@@ -5,7 +5,23 @@
 
 <body>
     
-    <%- include('../partials/main_nav.ejs') %>
+    <nav class="nav">
+        <div class="col-30">
+            <a id="icon-background" href="/"><i class="fas fa-camera-retro fa-3x"></i></a>
+            <li><a href="../users">All Users</a></li>
+        </div>
+        <div class="col-70">
+            <li id="dropdown">
+                <a onclick="toggleDrop()" class="dropbtn">Account</a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="../users/add">New User</a>
+                    <a href="../users/<%= user.id %>/edit">Edit User</a>
+                    <a href="../users/delete">Delete Account</a>
+                </div>
+            </li>
+            <li><a href="#">Login/out </a></li> 
+        </div>
+    </nav>
     
     <%- include('../partials/profile.ejs') %>
 

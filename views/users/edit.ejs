@@ -9,9 +9,47 @@
 
     <div class="form-container">
         
-        <form action="/users" method="POST" id="new-user">
+        <form action="/users/<%=user.id %>?_method=PUT" method="POST" id="new-user">
 
-            <%- include('../partials/userForm.ejs') %>
+            <div class="input-card">
+                <label for="username" class="form-label">Username: </label><br>
+                <input type="text" class="form-input" id="username" name="username" value="<%=user.username%>">
+            </div>
+        
+            <div class="input-card">
+                <label for="password" class="form-label">Password: </label><br>
+                <input type="text" class="form-input" id="password" name="password" value="<%=user.password%>">
+            </div>
+        
+            <div class="input-card">
+                <label for="firstname" class="form-label">First Name: </label><br>
+                <input type="text" class="form-input" id="firstname" name="firstname" value="<%=user.firstname%>">
+            </div>
+        
+            <div class="input-card">
+                <label for="lastname" class="form-label">Last Name: </label><br>
+                <input type="text" class="form-input" id="lastname" name="lastname" value="<%=user.lastname%>">
+            </div>
+        
+            <div class="input-card">
+                <label for="email" class="form-label">Email: </label><br>
+                <input type="text" class="form-input" id="email" name="email" value="<%=user.email%>">
+            </div>
+        
+            <div class="input-card">
+                <label for="profileImg" class="form-label">Profile Picture URL: </label><br>
+                <input type="text" class="form-input" id="profileImg" name="profileImg" value="<%=user.profileImg%>">
+            </div>
+        
+            <div class="input-card" class="form-label">
+                <label for="hometown">Hometown: </label><br>
+                <input type="text" class="form-input" id="hometown" name="hometown" value="<%=user.hometown%>">
+            </div>
+        
+            <div class="input-card" class="form-label">
+                <label for="currentCity">Current City: </label><br>
+                <input type="text" class="form-input" id="currentCity" name="currentCity" value="<%=user.currentCity%>">
+            </div>
 
             <div class="submit-container" class="form-label">
                 <input type="submit" class="submit" name="newuser_submit" value="Update">
