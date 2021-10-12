@@ -83,9 +83,22 @@ router.put('/:userId', (req, res) => {
     );
 });
 
-// == Delete == //
-router.get('/delete', (req,res) => {
-    res.render('users/delete');
+// == Delete Route (View)== //
+router.get('/:userId/delete', (req,res) => {
+    User.findById(req.params.userId, (error, foundUser) => {
+        if (error) return console.log(error);
+
+        return res.render('users/delete', { user: foundUser });
+    });
+});
+/* Delete (Verb) */
+router.delete('/:userId', (req, res) => {
+    User.findByIdAndDelete( req.params.userId, (error, deletedUser) => {
+        if (error) return console.log(error);
+    
+        console.log(deletedUser);
+        return res.redirect('/');
+    });
 });
 
 module.exports = router;

@@ -16,7 +16,7 @@
                 <div id="myDropdown" class="dropdown-content">
                     <a href="../users/add">New User</a>
                     <a href="../users/<%= user.id %>/edit">Edit User</a>
-                    <a href="../users/delete">Delete Account</a>
+                    <a href="../users/<%= user.id %>/delete">Delete Account</a>
                 </div>
             </li>
             <li><a href="#">Login/out </a></li> 
@@ -24,7 +24,7 @@
     </nav>
     
     <%- include('../partials/profile.ejs') %>
-
+    
     <%- include('../partials/footer.ejs') %>
 
 </body>
