@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'New Photo' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="form-container">
+        
+        <form action="/photos" method="POST" id="new-photo">
+            
+            <div class="input-card">
+                <label for="img" class="form-label">Image URL: </label><br>
+                <input type="text" class="form-input" id="img" name="img" placeholder="URL only!">
+            </div>
+            
+            <div class="input-card">
+                <label for="description" class="form-label">Description: </label><br>
+                <textarea type="text" class="form-input" id="description" name="description" placeholder="Tell us about it..."></textarea>
+            </div>
+            
+            <div class="input-card">
+                <label for="tagline" class="form-label">Tagline: </label><br>
+                <input type="text" class="form-input" id="tagline" name="tagline" placeholder="Tell us about it...">
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" class="submit edit" name="newPhoto_submit" value="Update">
+            </div>
+        
+        </form>
+    
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

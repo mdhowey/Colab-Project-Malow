@@ -9,19 +9,24 @@
 
     <div class="form-container">
         
-        <form action="/users" method="DELETE" id="new-user">
+        <div class="delete-btn-container">
 
             <p>You are about to delete something... permanently!</h1>
             <p>Are you sure you want to do that?</p>
-            <div class="delete-btn-container">
-                <div class="submit-container" class="form-label">
-                    <input type="submit" class="submit cancel" name="newuser_submit" value="Cancel">
+
+            <form action="/users/<%= user.id %>" method="GET" id="new-user">
+                <div class="submit-container form-label">
+                    <input type="submit" class="submit cancel" value="Cancel">
                 </div>
-                <div class="submit-container" class="form-label">
-                    <input type="submit" class="submit danger" name="newuser_submit" value="Delete">
+            </form>
+
+            <form action="/users/<%= user.id %>?_method=DELETE" method="POST" id="new-user">
+                <div class="submit-container form-label">
+                    <input type="submit" class="submit danger" value="Delete">
                 </div>
-            </div>
-        </form>
+            </form>
+
+        </div>
     
     </div>
 
