@@ -1,6 +1,8 @@
 // ==== External Dependencies ==== //
 const express = require('express');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const PORT = 4000;
 
@@ -15,23 +17,38 @@ require("./config/db.connection");
 
 app.set('view engine', 'ejs');
 
+app.use(
+    session({
+        store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/pikchu' }),
+        secret: 'super secret',
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7 * 2, 
+        }
+    })
+);
+
 app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: false}));
 
 app.use(methodOverride('_method'));
+
 // ==== Logger ==== //
 app.use((req, res, next) => {
     console.log(`[${req.url}] ${req.method} - ${new Date().toLocaleTimeString()}`);
+    console.log(req.session);
     next();
 });
 
 app.use('/users', controllers.user);
 app.use('/photos', controllers.photo);
+app.use('/', controllers.auth);
 
-// == Home Page == //
+// == Login Page == //
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('auth/login');
 });
 
 // == 404 == //

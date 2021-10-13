@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'Register' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="form-container">
+        
+        <form action="/register" method="POST" id="new-user">
+            
+            <h2>REGISTER: </h2>
+
+            <div class="input-card">
+                <label class="form-label">Username: </label><br>
+                <input name="username" class="form-input" type="text" placeholder="Make it clever...">
+            </div>
+
+            <div class="input-card">
+                <label class="form-label">Email: </label><br>
+                <input name="email" class="form-input" type="text" placeholder="Best place to reach you...">
+            </div>
+            
+            <div class="input-card">
+                <label class="form-label">Password: </label><br>
+                <input name="password" class="form-input" type="password" placeholder="********">
+            </div>
+            
+            <div class="input-card">
+                <label class="form-label">First Name: </label><br>
+                <input name="firstname" class="form-input" type="text" placeholder="Don't forget it...">
+            </div>
+            
+            <div class="input-card">
+                <label class="form-label">Last Name: </label><br>
+                <input name="lastname" class="form-input" type="text" placeholder="Don't forget it...">
+            </div>
+            
+            <div class="input-card">
+                <label class="form-label">Profile Picture URL: </label><br>
+                <input name="profileImg" class="form-input" type="text" placeholder="Keep it classy...">
+            </div>
+            
+            <div class="input-card" class="form-label">
+                <label class="form-label">Hometown: </label><br>
+                <input name="hometown" class="form-input" type="text" placeholder="Your current city...">
+            </div>
+            
+            <div class="input-card" class="form-label">
+                <label class="form-label">Current City: </label><br>
+                <input name="currentCity" class="form-input" type="text" placeholder="Your current city...">
+            </div>
+            
+            <div class="submit-container">
+                <button id="user_submit" type="submit" class="submit">Sign me up</button>
+            </div>
+        
+        </form>
+    
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

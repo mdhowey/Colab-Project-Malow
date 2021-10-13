@@ -49,10 +49,24 @@
         </div>
 
         <div class="solo-comment-container">
+            <!-- if null, browser is throwing an error;
+                "Cannot read properties of null ;reading 
+                'comment';" -->
+                <% if (typeof (comments) !== null) { %> 
+                    
+                    <div class="solo-desc-container">
+                        <div>
+                            <!-- Shouldn't print if no
+                            comment is available... -->
+                            <p>Comments:</p>
+                        </div>    
+                        
+                    </div>
+                    <p class="solo-comment"><%= comments %></p> 
+                <!-- <p class="solo-comment"></p>  -->
+                <!-- <p class="solo-comment"></p>  -->
 
-            <p class="solo-comment"><%= comments.comment %></p> 
-            <p class="solo-comment"><%= comments.userId %></p> 
-            <p class="solo-comment"><%= comments.photoId %></p> 
+            <% } %> 
 
         </div>
 

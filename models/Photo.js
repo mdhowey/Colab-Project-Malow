@@ -20,8 +20,8 @@ const photoSchema = new mongoose.Schema({
         default: 'No tagline provided.',
     },
     like: {
-        type: Array,
-        default: [],
+        type: Number,
+        default: 0,
     },
     location: {
         type: String,

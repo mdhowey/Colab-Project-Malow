@@ -2,59 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Comment, Photo, User } = require('../models');
 
-// Photo.deleteMany({}, function (error, deletedPhotos) {
-//     if (error) {
-//         return console.log(error);
-//     }
-//     Photo.insertMany(
-//         [
-//             {
-//                 userId: '6165daefd9a3f375c7ba8e25',
-//                 img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
-//                 description: 'test description 1',
-//                 tagline: 'test tagline 1',
-//             },
-//             {
-//                 userId: '6165daefd9a3f375c7ba8e25',
-//                 img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
-//                 description: 'test description 1',
-//                 tagline: 'test tagline 1',
-//             },
-//             {
-//                 userId: '6165daefd9a3f375c7ba8e25',
-//                 img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
-//                 description: 'test description 1',
-//                 tagline: 'test tagline 1',
-//             },
-//             {
-//                 userId: '6165daefd9a3f375c7ba8e25',
-//                 img: 'https://media.istockphoto.com/photos/okay-picture-id174349058',
-//                 description: 'test description 1',
-//                 tagline: 'test tagline 1',
-//             },
-//             {
-//                 userId: '6165d13dd8c52d1da3bdeeb4',
-//                 img: 'https://c8.alamy.com/compes/crj923/servicio-al-cliente-joven-hombre-con-corse-haciendo-firmar-el-o-k-crj923.jpg',
-//                 description: 'test description 2',
-//                 tagline: 'test tagline 2',
-//             },
-//             {
-//                 userId: '6165cf34f79912fce8ed9808',
-//                 img: 'https://previews.123rf.com/images/luismolinero/luismolinero1606/luismolinero160603079/58674992-black-man-making-ok-sign.jpg',
-//                 description: 'test description 3',
-//                 tagline: 'test tagline 3',
-//             },
-//         ],
-//     ),
-//     function (error, createdPhotos) {
-//         if (error) {
-//             return console.log(error);
-//         }
-//         console.log('// ==== Seeded Photos ==== //');
-//         console.log(createdPhotos);
-//     };
-// });
-
 /* ==== PHOTO ROUTES ==== */
 //== Show Photo Index == //
 router.get('/', function (req, res) {
@@ -87,25 +34,25 @@ router.post('/', (req, res) => {
 });
 
 // == Show Solo Photo == //
-router.get('/:photoId', (req, res, next) => {
-    Photo.findById(req.params.photoId, (error, photo) => {
-        
-        if (error) {
-            console.log(error);
-            req.error = error;
-            return next();
-        }
-        
-        Comment.find({ photoId: req.params.photoId }, (error, comments) => {
-            const context = {
-                photo,
-                comments,
-            };
-            console.log(context)
+router.get('/:photoId', async function (req, res) {
+    try {
+        const foundPhoto = await Photo.findById(req.params.photoId)
+            console.log(`foundPhoto is: ${foundPhoto._id}`);
+            
+            const foundComments = await Comment.findOne({ photoId: foundPhoto._id });
+                console.log(foundComments)
+                const context = {
+                    photo: foundPhoto,
+                    comments: foundComments,
+                };
+                console.log(context)
 
-            return res.render('photos/show_photo', context)
-        });
-    });
+                return res.render('photos/show_photo', context)
+    }
+    catch(err) {
+        console.log(err);
+        res.send(err);
+    }
 });
 
 // == Edit == //
@@ -141,7 +88,7 @@ router.delete('/:photoId', (req, res) => {
         if (error) return console.log(error);
     
         console.log(deletedPhoto);
-        return res.redirect('/users');
+        return res.redirect('/photos');
     });
 });
 

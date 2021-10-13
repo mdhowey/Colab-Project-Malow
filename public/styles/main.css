@@ -109,7 +109,7 @@ ul {
     flex-direction: column;
 }
 
-/* Home View */
+/* Login */
 .home-container {
     display: flex;
     justify-content: center;
@@ -142,6 +142,11 @@ ul {
 
 .home-sub-title {
     font-size: 1.5em;
+}
+
+#center-login {
+    display: flex;
+    justify-content: center;
 }
 
 .submit.home {
@@ -397,7 +402,6 @@ ul {
     width: 42vw;
     font-size: 1.3em;
     color: #FFF;
-    margin-bottom: 4em;
 }
 
 .desc-content {
@@ -407,6 +411,7 @@ ul {
 .solo-comment-container {
     width: 42vw;
     height: auto;
+    margin-bottom: 4em;
 }
 
 .solo-comment {

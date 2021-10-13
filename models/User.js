@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
     },
     profileImg: {
         type: String,
-        default: '', // set avatar
+        default: 'https://i.pinimg.com/originals/5f/a8/ef/5fa8ef8001f91d2c4d9f9b68b87dcf0d.jpg',
     },
     hometown: {
         type: String, 
@@ -41,4 +41,5 @@ const userSchema = new mongoose.Schema({
 );
 
 const User = mongoose.model('User', userSchema);
+
 module.exports = User;

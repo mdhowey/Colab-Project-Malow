@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'Login' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+    
+    <div class="home-container">
+        
+        <div class="login-container">
+            
+            <h1 class="home-title">PikChu</h1>
+            
+            <form action="/login" method="POST">
+                <div class="login-card">        
+                    <label class="form-label">Email: </label><br>
+                    <input name="email" class="form-input" type="email" placeholder="youremail@here.com">
+                </div>
+
+                <div class="login-card">
+                    <label class="form-label">Password: </label><br>
+                    <input name="password" class="form-input" type="password" placeholder="********">
+                </div>
+                
+                <div id="center-login">
+                    <button type="submit" class="submit home">Sign in</button>
+                </div>
+                
+            </form>
+            
+            <p class="home-sub-title">Don't have an account yet?</p>
+            
+            <a href="/register"><button type="submit" class="submit">Create Account</button></a>
+            
+        </div>
+
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>
