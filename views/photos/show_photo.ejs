@@ -17,7 +17,7 @@
                 <input type="submit" class="photo-edit" value="Edit">
             </form> 
 
-            <form action="/photos/<%= photo.id %> /?_method=DELETE" method="POST"> 
+            <form action="/photos/<%= photo.id %>?_method=DELETE" method="POST"> 
                 <input type="submit" class="photo-delete" value="Delete">
             </form>
 
@@ -28,7 +28,7 @@
                 <p>Description:</p>
             </div>    
             <div>
-                <p class="desc-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ad amet itaque ratione minima assumenda facere beatae similique fuga harum alias cumque consequuntur laudantium libero inventore nam repudiandae, corrupti vel.</p>
+                <p class="desc-content"><%= photo.description %> </p>
             </div>
         </div>
 
