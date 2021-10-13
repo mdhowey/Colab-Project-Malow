@@ -3,28 +3,33 @@
 
 <%- include('../partials/head.ejs', { page: 'View Photo' }) %> 
 
+<%- include('../partials/main_nav.ejs') %>
+
     <div class="solo-photo-container">
 
-        <img src="<%= photo.img %> " alt="Solo photo"/>
+        <div class="solo-photo-card">
+            <img src="http://www.misgafasdepasta.com/wp-content/uploads/2018/03/fotos-de-stock-mas-raras-mis-gafas-de-pasta05.jpg" alt="Solo photo"/>
+        </div>    
 
         <div class="solo-photo-row">
 
-            <form action="/users/" method="GET" id="new-user"> 
-                <div class="submit-container form-label"> 
-                <input type="submit" class="submit cancel" value="Cancel">
-                </div> 
+            <form action="/users/" method="GET"> 
+                <input type="submit" class="photo-edit" value="Edit">
             </form> 
 
-            <form action="/users/?_method=DELETE" method="POST" id="new-user"> 
-                <div class="submit-container form-label"> 
-                <input type="submit" class="submit danger" value="Delete">
-                </div> 
+            <form action="/users/?_method=DELETE" method="POST"> 
+                <input type="submit" class="photo-delete" value="Delete">
             </form>
 
         </div>
 
         <div class="solo-desc-container">
-            <p><%= photo.description %> </p>
+            <div>
+                <p>Description:</p>
+            </div>    
+            <div>
+                <p class="desc-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ad amet itaque ratione minima assumenda facere beatae similique fuga harum alias cumque consequuntur laudantium libero inventore nam repudiandae, corrupti vel.</p>
+            </div>
         </div>
 
     </div>
