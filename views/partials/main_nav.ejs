@@ -5,6 +5,9 @@
         <li><a href="../photos">All Photos</a></li>
     </div>
     <div class="col-70">
+        <% if (typeof user !== 'undefined') { %>
+                <p id="logged-in-name">Welcome back, <%= user.username %>!</p>
+        <% } %>
         <li id="dropdown">
             <a onclick="toggleDrop()" class="dropbtn">Account</a>
             <div id="myDropdown" class="dropdown-content">

@@ -29,6 +29,11 @@ app.use(
     })
 );
 
+app.use(function (req, res, next) {
+    res.locals.user = req.session.currentUser;
+    next();
+});
+
 app.use(express.static('public'));
 
 app.use(express.urlencoded({ extended: false}));
