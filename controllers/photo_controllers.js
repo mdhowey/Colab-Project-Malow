@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Photo, User } = require('../models');
+const { Comment, Photo, User } = require('../models');
 
 // Photo.deleteMany({}, function (error, deletedPhotos) {
 //     if (error) {
@@ -89,13 +89,22 @@ router.post('/', (req, res) => {
 // == Show Solo Photo == //
 router.get('/:photoId', (req, res, next) => {
     Photo.findById(req.params.photoId, (error, photo) => {
-        console.log(photo)
-        if (error) return console.log(error);
-        const context = {
-            photo,
+        
+        if (error) {
+            console.log(error);
+            req.error = error;
+            return next();
         }
-    
-        return res.render('photos/show_photo', context)
+        
+        Comment.find({ photoId: req.params.photoId }, (error, comments) => {
+            const context = {
+                photo,
+                comments,
+            };
+            console.log(context)
+
+            return res.render('photos/show_photo', context)
+        });
     });
 });
 

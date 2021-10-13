@@ -183,6 +183,11 @@ ul {
     color: #7FFF0D;
 }
 
+/* Photo Index */
+#photo-container {
+    margin-bottom: 5em;
+}
+
 /* Form */
 .form-container {
     display: flex;
