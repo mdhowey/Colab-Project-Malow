@@ -337,19 +337,34 @@ ul {
 
 .solo-photo-row {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 42vw;
 }
 
-.photo-edit {
+.solo-photo-row-1,
+.solo-photo-row-2 {
+    display: flex;
+    align-items: center;
+    width: 21vw;
+}
+
+.solo-photo-row-2 {
+    justify-content: flex-end;
+} 
+
+.photo-edit,
+#photo-like,
+#photo-comment {
     padding: 0.2em 1em;
     margin: 0.4em 0.25em 0 0;
     border: none;
     background-color: #7FFF0D;
     color: #202225;
     font-size: 1em;
-    border-radius: 0.25em;
+    border-radius: 0.5em;
+}
+
+#photo-like, 
+#photo-comment {
+    margin-left: 0.25em;
 }
 
 .photo-delete {
@@ -361,7 +376,9 @@ ul {
     border-radius: 0.25em;
 }
 
-.photo-edit:hover {
+.photo-edit:hover,
+#photo-like:hover, 
+#photo-comment:hover {
     background-color: #478014;
     color: #FFF;
     cursor: pointer;
