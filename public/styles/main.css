@@ -387,6 +387,16 @@ ul {
     color: #202225;
 }
 
+.solo-comment-container {
+    width: 42vw;
+    height: auto;
+}
+
+.solo-comment {
+    font-size: 1.8em;
+    color: #7FFF0D;
+}
+
 /* Delete View */
 .delete-btn-container {
     display: flex;
