@@ -22,12 +22,14 @@
                 <label for="password" class="form-label">Password: </label><br>
                 <input type="text" class="form-input" id="password" name="password">
             </div>
-
-            <input type="submit" class="submit home" name="newuser_submit" value="Sign in">
+            
+            <form method="POST" action="/login">
+                <input type="submit" class="submit home" name="newuser_submit" value="Sign in">
+            </form>
             
             <p class="home-sub-title">Don't have an account yet?</p>
             
-            <form method="GET" action="/users/add">
+            <form method="GET" action="/register">
                 <button type="submit" class="submit">Create Account</button>
             </form>
             
