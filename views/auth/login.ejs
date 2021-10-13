@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs', { page: 'Login' }) %> 
+<%- include('../partials/head.ejs', { page: 'New Photo' }) %> 
 
 <body>
     
-    <%- include('../partials/main_nav.ejs') %>
+    <nav class="nav">
+        <div class="col-30">
+            <a id="icon-background" href="/login"><i class="fas fa-camera-retro fa-3x"></i></a>
+        </div>
+        <div class="col-70">
+            <li id="dropdown">
+                <a onclick="toggleDrop()" class="dropbtn">Account</a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="../register">New User</a>
+                </div>
+            </li>
+            <li><a href="/login">Login</a></li> 
+        </div>
+    </nav> 
     
     <div class="home-container">
         
