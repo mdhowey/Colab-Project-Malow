@@ -1,11 +1,15 @@
 // ==== External Dependencies ==== //
 const express = require('express');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
 
 const PORT = 4000;
 
 // ==== Internal Dependencies ==== //
 const controllers = require('./controllers');
+const { connect } = require('mongoose');
 
 // == Invoke express == //
 const app = express();
@@ -14,6 +18,18 @@ const app = express();
 require("./config/db.connection");
 
 app.set('view engine', 'ejs');
+
+app.use (
+    session({
+        store: MongoStore.create('mongodb://localhost:27017/pikchu'),
+        secret: 'super secret',
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7 * 2, 
+        }
+    })
+)
 
 app.use(express.static('public'));
 
