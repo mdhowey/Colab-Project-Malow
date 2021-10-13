@@ -69,6 +69,23 @@ router.get('/', function (req, res) {
     });
 });
 
+// == Add == //
+router.get('/add', function (req, res) {
+    res.render('photos/add');
+});
+
+/* Create */
+router.post('/', (req, res) => {
+    console.log('req.body', req.body);
+    Photo.create( req.body, (error, newPhoto) => {
+        if (error) return console.log(error);
+
+        console.log(newPhoto);
+
+        return res.redirect('/photos');
+    });
+});
+
 // == Show Solo Photo == //
 router.get('/:photoId', (req, res, next) => {
     Photo.findById(req.params.photoId, (error, photo) => {

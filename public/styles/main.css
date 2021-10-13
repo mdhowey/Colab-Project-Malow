@@ -245,11 +245,15 @@ ul {
 }
 
 /* Show (Profile) View */
+.userId-container { /* TESTING!!!! */
+    margin: 5em 0 0 2em;
+}
+
 .profile-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5em;
+    /* margin-top: 5em; */
 }
 
 .profile-photo-wrapper {

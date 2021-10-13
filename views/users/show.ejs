@@ -15,7 +15,7 @@
             <li id="dropdown">
                 <a onclick="toggleDrop()" class="dropbtn">Account</a>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="../users/add">New User</a>
+                    <a href="../photos/add">Add Photo</a>
                     <a href="../users/<%= user.id %>/edit">Edit User</a>
                     <a href="../users/<%= user.id %>/delete">Delete Account</a>
                 </div>
@@ -24,6 +24,10 @@
         </div>
     </nav>
     
+    <div class="userId-container">
+        <h1>My ID: <%= user.id %> </h1>
+    </div>
+
     <%- include('../partials/profile.ejs') %>
     
     <div class="user-photos-container">

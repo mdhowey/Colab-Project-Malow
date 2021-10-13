@@ -23,6 +23,7 @@ router.get('/add', function (req, res) {
     res.render('users/add');
 });
 
+/* Create */
 router.post('/', (req, res) => {
     console.log('req.body', req.body);
     User.create( req.body, (error, newUser) => {
