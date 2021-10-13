@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const { User } = require('../models');
 
 // ==== AUTH ROUTES ==== //
-// == Create --> Get Route for Auth == //
+// == Create --> Get Route for Register == //
 router.get('/register', function (req, res) {
     return res.render('auth/register');
 });

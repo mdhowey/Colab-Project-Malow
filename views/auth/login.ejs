@@ -13,25 +13,26 @@
             
             <h1 class="home-title">PikChu</h1>
             
-            <div class="login-card">
-                <label for="username" class="form-label">Username: </label><br>
-                <input type="text" class="form-input" id="username" name="username">
-            </div>
+            <form action="/login" method="POST">
+                <div class="login-card">        
+                    <label class="form-label">Username: </label><br>
+                    <input name="email" class="form-input" type="email" placeholder="youremail@here.com">
+                </div>
 
-            <div class="login-card">
-                <label for="password" class="form-label">Password: </label><br>
-                <input type="text" class="form-input" id="password" name="password">
-            </div>
-            
-            <form method="POST" action="/login">
-                <input type="submit" class="submit home" name="newuser_submit" value="Sign in">
+                <div class="login-card">
+                    <label class="form-label">Password: </label><br>
+                    <input name="password" class="form-input" type="password" placeholder="********">
+                </div>
+                
+                <div id="center-login">
+                    <button type="submit" class="submit home">Sign in</button>
+                </div>
+                
             </form>
             
             <p class="home-sub-title">Don't have an account yet?</p>
             
-            <form method="GET" action="/register">
-                <button type="submit" class="submit">Create Account</button>
-            </form>
+            <a href="/register"><button type="submit" class="submit">Create Account</button></a>
             
         </div>
 

@@ -27,7 +27,7 @@ app.use(
             maxAge: 1000 * 60 * 60 * 24 * 7 * 2, 
         }
     })
-)
+);
 
 app.use(express.static('public'));
 
@@ -46,9 +46,9 @@ app.use('/users', controllers.user);
 app.use('/photos', controllers.photo);
 app.use('/', controllers.auth);
 
-// == Home Page == //
+// == Login Page == //
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('auth/login');
 });
 
 // == 404 == //

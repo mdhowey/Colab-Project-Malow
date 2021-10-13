@@ -109,7 +109,7 @@ ul {
     flex-direction: column;
 }
 
-/* Home View */
+/* Login */
 .home-container {
     display: flex;
     justify-content: center;
@@ -142,6 +142,11 @@ ul {
 
 .home-sub-title {
     font-size: 1.5em;
+}
+
+#center-login {
+    display: flex;
+    justify-content: center;
 }
 
 .submit.home {

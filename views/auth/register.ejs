@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs', { page: 'New User' }) %> 
+<%- include('../partials/head.ejs', { page: 'Register' }) %> 
 
 <body>
     
@@ -9,10 +9,50 @@
 
     <div class="form-container">
         
-        <form action="/users" method="POST" id="new-user">
+        
+        <form action="/register" method="POST" id="new-user">
+            
+            <h2>REGISTER: </h2>
 
-            <%- include('../partials/userForm.ejs') %>
-
+            <div class="input-card">
+                <label for="username" class="form-label">Username: </label><br>
+                <input type="text" class="form-input" id="username" name="username" placeholder="Make it clever...">
+            </div>
+            
+            <div class="input-card">
+                <label for="password" class="form-label">Password: </label><br>
+                <input type="text" class="form-input" id="password" name="password" placeholder="Don't forget it...">
+            </div>
+            
+            <div class="input-card">
+                <label for="firstname" class="form-label">First Name: </label><br>
+                <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Don't forget it...">
+            </div>
+            
+            <div class="input-card">
+                <label for="lastname" class="form-label">Last Name: </label><br>
+                <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Don't forget it...">
+            </div>
+            <div class="input-card">
+                <label for="email" class="form-label">Email: </label><br>
+                <input type="text" class="form-input" id="email" name="email" placeholder="Best place to reach you...">
+            </div>
+            
+            <div class="input-card">
+                <label for="profileImg" class="form-label">Profile Picture URL: </label><br>
+                <input type="text" class="form-input" id="profileImg" name="profileImg" placeholder="Keep it classy...">
+            </div>
+            
+            <div class="input-card" class="form-label">
+                <label for="hometown">Hometown: </label><br>
+                <input type="text" class="form-input" id="hometown" name="hometown" placeholder="Your current city...">
+            </div>
+            
+            <div class="input-card" class="form-label">
+                <label for="currentCity">Current City: </label><br>
+                <input type="text" class="form-input" id="currentCity" name="currentCity" placeholder="Your current city...">
+            </div>
+            
             <div class="submit-container">
                 <input id="user_submit" type="submit" class="submit" name="newuser_submit" value="Sign me up">
             </div>
