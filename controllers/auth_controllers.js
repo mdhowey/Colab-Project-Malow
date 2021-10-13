@@ -53,7 +53,7 @@ router.post('/login', async function (req, res) {
         // if User doesn't exist, redirect to register page
         if (!foundUser) return res.redirect('/register');
 
-        // if the USer exists, validate password 
+        // if the User exists, validate password 
         // match with stored hash value in db
         const match = await bcrypt.compare(req.body.password, foundUser.password);
 
@@ -66,9 +66,8 @@ router.post('/login', async function (req, res) {
             id: foundUser._id,
             username: foundUser.username,
         };
-
         // change to redirect to the user profile
-        return res.redirect('/users'); 
+        return res.redirect(`/users/${foundUser._id}`); 
     } catch (err) {
         console.log(err);
         // create error landing page 
