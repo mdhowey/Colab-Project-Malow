@@ -397,7 +397,6 @@ ul {
     width: 42vw;
     font-size: 1.3em;
     color: #FFF;
-    margin-bottom: 4em;
 }
 
 .desc-content {
@@ -407,6 +406,7 @@ ul {
 .solo-comment-container {
     width: 42vw;
     height: auto;
+    margin-bottom: 4em;
 }
 
 .solo-comment {
