@@ -71,13 +71,14 @@ router.get('/', function (req, res) {
 
 // == Show Solo Photo == //
 router.get('/:photoId', (req, res, next) => {
-    Photo.find({ photoId: req.params.photoId}, (error, photo) => {
+    Photo.findById(req.params.photoId, (error, photo) => {
+        console.log(photo)
         if (error) return console.log(error);
         const context = {
-            photos: photo,
-        };
+            photo,
+        }
     
-        return res.render('../views/photos/show_photo.ejs', context)
+        return res.render('photos/show_photo', context)
     });
 });
 
