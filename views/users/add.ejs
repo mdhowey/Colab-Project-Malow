@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'New User' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="form-container">
+        
+        <form action="/users" method="POST" id="new-user">
+
+            <%- include('../partials/userForm.ejs') %>
+
+            <div class="submit-container">
+                <input id="user_submit" type="submit" class="submit" name="newuser_submit" value="Sign me up">
+            </div>
+        
+        </form>
+    
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

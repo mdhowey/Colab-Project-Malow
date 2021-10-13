@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'DANGER' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="form-container">
+        
+        <div class="delete-btn-container">
+
+            <p>You are about to delete something... permanently!</h1>
+            <p>Are you sure you want to do that?</p>
+
+            <form action="/users/<%= user.id %>" method="GET" id="new-user">
+                <div class="submit-container form-label">
+                    <input type="submit" class="submit cancel" value="Cancel">
+                </div>
+            </form>
+
+            <form action="/users/<%= user.id %>?_method=DELETE" method="POST" id="new-user">
+                <div class="submit-container form-label">
+                    <input type="submit" class="submit danger" value="Delete">
+                </div>
+            </form>
+
+        </div>
+    
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'Users' }) %> 
+
+<body>
+    
+    <%- include('../partials/main_nav.ejs') %>
+    
+    <div class="main-container">
+        <% for(let idx=0; idx < users.length; idx++){ %>
+            <% const user=users[idx] %> 
+                <div class="user-index-card">
+                    <img src="<%= user.profileImg %>" id="user-index-img" alt="Placeholder image"/>
+                    <p><a href="/users/<%= user.id %>" id="user-index-name">
+                        <p><%= user.firstname %> <%= user.lastname %></p>
+                    </a></p>
+                    <p><%= user.currentCity %></p>
+                </div>
+
+        <% } %> 
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

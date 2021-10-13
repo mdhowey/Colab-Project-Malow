@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs', { page: 'Users' }) %> 
+
+<body>
+    
+    <nav class="nav">
+        <div class="col-30">
+            <a id="icon-background" href="/"><i class="fas fa-camera-retro fa-3x"></i></a>
+            <li><a href="../users">All Users</a></li>
+            <li><a href="../photos">All Photos</a></li>
+        </div>
+        <div class="col-70">
+            <li id="dropdown">
+                <a onclick="toggleDrop()" class="dropbtn">Account</a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="../photos/add">Add Photo</a>
+                    <a href="../users/<%= user.id %>/edit">Edit User</a>
+                    <a href="../users/<%= user.id %>/delete">Delete Account</a>
+                </div>
+            </li>
+            <li><a href="#">Login/out </a></li> 
+        </div>
+    </nav>
+    
+    <div class="userId-container">
+        <h1>My ID: <%= user.id %> </h1>
+    </div>
+
+    <%- include('../partials/profile.ejs') %>
+    
+    <div class="user-photos-container">
+
+        <% photos.forEach(photo => { %> 
+
+            <div class="user-photo-card">
+
+                <a href="../photos/<%= photo.id %> "><img src="<%= photo.img %>" alt="User Photo"/></a>
+                <p><%= photo.tagline %></p>
+                <p><%= photo.location %></p>
+
+            </div>
+
+        <% }) %> 
+
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>
