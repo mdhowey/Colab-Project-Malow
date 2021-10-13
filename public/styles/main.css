@@ -230,6 +230,10 @@ ul {
     border: none;
 }
 
+.submit.edit {
+    margin: 1.5em 0 4em 0;
+}
+
 .submit:hover,
 .submit:focus {
     background-color: #478014;
@@ -306,6 +310,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .submit.cancel {

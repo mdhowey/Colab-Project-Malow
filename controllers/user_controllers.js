@@ -44,11 +44,12 @@ router.get('/:userId', (req, res, next) => {
         }
         Photo.find({ userId: req.params.userId}, (error, allPhotos) => {
             if (error) return console.log(error);
+            console.log(allPhotos);
             const context = {
                 user: foundUser,
                 photos: allPhotos,
             };
-        
+            
             return res.render('../views/users/show.ejs', context)
         });
     });

@@ -57,18 +57,17 @@ Photo.deleteMany({}, function (error, deletedPhotos) {
 
 /* ==== PHOTO ROUTES ==== */
 //== Show Photo Index == //
-// router.get('/', function (req, res) {
+router.get('/', function (req, res) {
     
-//     Photo.find({}, (error, users) => {
-//         if (error) return console.log(error);
+    Photo.find({}, (error, photos) => {
+        if (error) return console.log(error);
+        const context = {
+            photos,
+        }
 
-//         const context = {
-//             photos,
-//         }
-
-//         res.render('photos/index', context);
-//     });
-// });
+        res.render('photos/index', context);
+    });
+});
 
 // == Show Solo Photo == //
 router.get('/:photoId', (req, res, next) => {
@@ -82,4 +81,4 @@ router.get('/:photoId', (req, res, next) => {
     });
 });
 
-module.exports = Photo;
+module.exports = router;

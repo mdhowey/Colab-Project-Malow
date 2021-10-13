@@ -20,20 +20,21 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false}));
 
 app.use(methodOverride('_method'));
-
-app.use('/users', controllers.user);
-// app.use('/photos', controllers.photo);
-
 // ==== Logger ==== //
 app.use((req, res, next) => {
     console.log(`[${req.url}] ${req.method} - ${new Date().toLocaleTimeString()}`);
     next();
 });
 
+app.use('/users', controllers.user);
+app.use('/photos', controllers.photo);
+
+// == Home Page == //
 app.get('/', function (req, res) {
     res.render('home');
 });
 
+// == 404 == //
 app.get('/*', (req, res) => {
     res.send('<h1> 404 </h1>');
 });
