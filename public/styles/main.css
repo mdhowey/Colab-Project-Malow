@@ -109,6 +109,11 @@ ul {
     flex-direction: column;
 }
 
+#logged-in-name {
+    color: #FFF;
+    font-size: 1.4em;
+}
+
 /* Login */
 .home-container {
     display: flex;
