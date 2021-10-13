@@ -10,11 +10,6 @@
     <div class="form-container">
         
         <form action="/photos" method="POST" id="new-photo">
-
-            <div class="input-card">
-                <label for="userId" class="form-label">User ID: </label><br>
-                <input type="text" class="form-input" id="userId" name="userId" placeholder="Check your profile for User ID">
-            </div>
             
             <div class="input-card">
                 <label for="img" class="form-label">Image URL: </label><br>
@@ -30,14 +25,9 @@
                 <label for="tagline" class="form-label">Tagline: </label><br>
                 <input type="text" class="form-input" id="tagline" name="tagline" placeholder="Tell us about it...">
             </div>
-            
-            <div class="input-card">
-                <label for="location" class="form-label">Location: </label><br>
-                <input type="text" class="form-input" id="location" name="location" placeholder="Where was this photo taken?">
-            </div>
 
             <div class="submit-container">
-                <input id="user_submit" type="submit" class="submit" name="newPhoto_submit" value="Post Photo">
+                <input type="submit" class="submit edit" name="newPhoto_submit" value="Update">
             </div>
         
         </form>

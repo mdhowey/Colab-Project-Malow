@@ -99,6 +99,33 @@ router.get('/:photoId', (req, res, next) => {
     });
 });
 
+// == Edit == //
+router.get('/:photoId/edit', (req,res) => {
+    Photo.findById(req.params.photoId, (error, foundPhoto) => {
+        if (error) return console.log(error);
+
+        return res.render('photos/edit.ejs', { photo: foundPhoto });
+    });
+});
+
+/* Update */
+router.put('/:photoId', (req, res) => {
+    Photo.findByIdAndUpdate(
+        req.params.photoId,
+        {
+            $set: req.body
+        },
+        {
+            new: true
+        },
+        (error, updatedPhoto) => {
+            if (error) return console.log(error);
+
+            return res.redirect(`/photos/${updatedPhoto.id}`);
+        }
+    );
+});
+
 /* Delete (Verb) */
 router.delete('/:photoId', (req, res) => {
     Photo.findByIdAndDelete( req.params.photoId, (error, deletedPhoto) => {
