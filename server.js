@@ -44,6 +44,7 @@ app.use((req, res, next) => {
 
 app.use('/users', controllers.user);
 app.use('/photos', controllers.photo);
+app.use('/', controllers.auth);
 
 // == Home Page == //
 app.get('/', function (req, res) {
