@@ -9,9 +9,16 @@ https://lucid.app/lucidchart/252bed58-9751-46e9-985b-df991028d609/edit?viewport_
 
 This is a basic instagram-esque social media application that was created to show proficiency working with the MEN stack. 
 
-? your user stories
+Users are able to create an account with email and password. 
 
-? explanations of the technologies used
+Users are able to upload photos with URLs, comment on those photos and like those photos. 
+
+A user is also able to delete, edit and view their photos. 
+
+Comments can be deleted. User accounts can also be deleted.
+
+This application uses auth via express-sessions which allows the user to sign out of their account. 
+
 Frontend: Express
 Backend: Node.js
 Database: MongoDB
