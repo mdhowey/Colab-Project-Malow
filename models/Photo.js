@@ -22,6 +22,7 @@ const photoSchema = new mongoose.Schema({
     like: {
         type: Number,
         default: 0,
+        required: true,
     },
     location: {
         type: String,

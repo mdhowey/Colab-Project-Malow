@@ -15,25 +15,49 @@ router.get('/', function (req, res) {
     });
 });
 
-// /* Comment */
-// router.get('/:photoId/comment', (req, res) => {
-//     Photo.findById(req.params.photoId, (error, foundPhoto) => {
-//         if (error) return console.log(error);
+/* Comment */
+router.get('/:photoId', (req, res) => {
+    Photo.findById(req.params.photoId, (error, foundPhoto) => {
+        if (error) return console.log(error);
 
-//         return res.render('photos/comment.ejs', { photo: foundPhoto });
-//     });
-// });
+        return res.render('comments/add', { photo: foundPhoto });
+    });
+});
 
-// /* Post Comment */
-// router.post('/:photoId', (req, res) => {
-//     console.log('req.body', req.body);
-//     Comment.create( req.body, (error, newComment) => {
-//         if (error) return console.log(error);
+/* Post Comment */
+router.post('/:photoId', (req, res) => {
+    // console.log('req.body', req.body);
+    const comment = {
+        ...req.body,
+        username: req.session.currentUser.username,
+    }
 
-//         console.log(newComment);
+    Comment.create(comment, (error, newComment) => {
+        if (error) return console.log(error);
 
-//         return res.redirect('/photos/show_photo');
-//     });
-// });
+        console.log(newComment);
+
+        Comment.find({ photo: req.params.photoId }, (error, foundPhoto) => {
+            if (error) return console.log(error);
+            
+            const context = {
+                photo: foundPhoto,
+                comments: comment,
+            };
+
+            return res.render('comments/show.ejs', { comments: comment })
+        });
+    });
+});
+
+/* Delete Comment */
+router.delete('/:commentId', (req, res) => {
+    Comment.findByIdAndDelete( req.params.commentId, (error, deletedComment) => {
+        if (error) return console.log(error);
+    
+        console.log(deletedComment);
+        return res.redirect('/comments');
+    });
+});
 
 module.exports = router;

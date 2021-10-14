@@ -6,12 +6,12 @@
 <body>
     
     <nav class="nav">
-        <div class="col-30">
+        <div class="col-60">
             <a id="icon-background" href="/"><i class="fas fa-camera-retro fa-3x"></i></a>
             <li><a href="../users">All Users</a></li>
             <li><a href="../photos">All Photos</a></li>
         </div>
-        <div class="col-70">
+        <div class="col-40">
             <% if (typeof user !== 'undefined') { %>
                 <p id="logged-in-name">Welcome back, <%= user.username %>!</p>
             <% } %>

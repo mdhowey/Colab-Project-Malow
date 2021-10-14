@@ -24,7 +24,7 @@
 
                 <span id="like-count">Likes: <%= photo.like %></span>  
                 
-                <form action="/photos/<%= photo.id %>/comment?_method=PUT" method="GET">
+                <form action="/comments/<%= photo.id %>?_method=PUT" method="GET">
                     <input type="submit" id="photo-comment" value="Comment">
                 </form>
 
@@ -71,7 +71,7 @@
                             <div class="solo-comment-username"><%= comments[index].username %></div> 
                             <div class="solo-comment-timestamp"><%= new Date(comments[index].createdAt).toLocaleString() %></div> 
                             <div class="solo-comment-text"><%= comments[index].comment %></div> 
-                        
+                            
                         </div>
 
                     <% } %>

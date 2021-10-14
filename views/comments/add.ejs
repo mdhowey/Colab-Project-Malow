@@ -2,7 +2,7 @@
 <html lang="en">
 
     
-<%- include('../partials/head.ejs', { page: 'View Photo' }) %> 
+<%- include('../partials/head.ejs', { page: 'Comment' }) %> 
     
 <body>
 
@@ -18,13 +18,17 @@
 
     <div class="solo-comment-container">
 
-        <div class="input-card">
-            <label for="description" class="form-label">Comment: </label><br>
-            <textarea type="text" name="description" class="form-input" id="photo-comment-input" placeholder="Tell us about it..." rows="6"></textarea>
-        </div>
+        <form action="/comments/<%= photo.id %>" method="POST" id="new-photo">
+            <div class="input-card">
+                <label for="comment" class="form-label">Comment: </label><br>
+                <textarea type="text" name="comment" class="form-input" id="photo-comment-input" placeholder="Tell us about it..." rows="6"></textarea>
+            </div>
 
-        <input id="comment_submit" type="submit" class="submit" name="newComment_submit" value="Post Comment">
-        
+            <button id="comment_submit" type="submit" class="submit">Post Comment</button>
+
+            <input type="hidden" name="photoId" value="<%= photo._id %>" />
+        </form>
+
     </div>
 
 <%- include('../partials/footer.ejs') %>

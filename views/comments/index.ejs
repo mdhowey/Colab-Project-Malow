@@ -10,11 +10,19 @@
     <div class="main-container" id="photo-container"> 
         <% for(let idx=0; idx < comments.length; idx++){ %>
             <% const comment=comments[idx] %> 
-                <div class="user-index-card">
-                    <!-- <a href="/comments/" id="user-index-name"> -->
+                <div class="comment-index-card">
+
+                    <a href="/photos/<%= comment.photoId %>">    
                         <div class="solo-comment-username"><%= comment.username %></div> 
-                        <div class="solo-comment-timestamp"><%= new Date(comment.createdAt).toLocaleString() %></div> 
-                        <div class="solo-comment-text"><%= comment.comment %></div> 
+                    </a>
+                    
+                    <div class="solo-comment-timestamp"><%= new Date(comment.createdAt).toLocaleString() %></div> 
+                    <div class="solo-comment-text"><%= comment.comment %> </div> 
+
+                    <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                        <button type="text" id="delete_comment">Delete</button>
+                    </form>
+
                 </div>
 
         <% } %> 
