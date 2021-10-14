@@ -82,6 +82,20 @@ router.put('/:photoId', (req, res) => {
     );
 });
 
+/* Like Update */
+router.put(':/photoId/like', (req, res) => {
+    console.log(req.body.like + 1);
+    Photo.findByIdAndUpdate(
+        req.params.photoId,
+        {
+            $set: {like: req.body.like + 1}
+        },
+        {
+            new: true
+        }
+    )
+});
+
 /* Delete (Verb) */
 router.delete('/:photoId', (req, res) => {
     Photo.findByIdAndDelete( req.params.photoId, (error, deletedPhoto) => {
