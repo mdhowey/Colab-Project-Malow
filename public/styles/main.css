@@ -436,11 +436,25 @@ ul {
     margin-bottom: 4em;
 }
 
-.solo-comment {
+.comment-content-container {
+    background-color: #802164;
+    margin: 00.5em;
+}
+
+.solo-comment-username, 
+.solo-comment-timestamp,
+.solo-comment-text {
+    padding: 0.25em;
+}
+
+.solo-comment-username {
     font-size: 1.8em;
     color: #7FFF0D;
 }
 
+.solo-comment-text {
+    color: #FFF;
+}
 /* Delete View */
 .delete-btn-container {
     display: flex;

@@ -21,7 +21,9 @@
 
                 <span id="like-count">Likes: <%= photo.like %></span>  
                 
-                <input type="submit" id="photo-comment" value="Comment">
+                <form action="/photos/<%= photo.id %>/?_method=PUT" method="GET">
+                    <input type="submit" id="photo-comment" value="Comment">
+                </form>
 
             </div>
             
@@ -49,25 +51,32 @@
         </div>
 
         <div class="solo-comment-container">
+            
             <!-- if null, browser is throwing an error;
                 "Cannot read properties of null ;reading 
                 'comment';" -->
                 <% if (typeof (comments) !== null) { %> 
-                    
                     <div class="solo-desc-container">
-                        <div>
-                            <!-- Shouldn't print if no
-                            comment is available... -->
-                            <p>Comments:</p>
-                        </div>    
-                        
+                        <!-- Shouldn't print if no
+                        comment is available... -->
+                        <p>Comments:</p>   
                     </div>
-                    <p class="solo-comment"><%= comments %></p> 
+                    <% for( let index = 0; index < comments.length; index++ ) { %>
+                        
+                        <div class="comment-content-container">
+
+                            <div class="solo-comment-username"><%= comments[index].username %></div> 
+                            <div class="solo-comment-timestamp"><%= new Date(comments[index].createdAt).toLocaleString() %></div> 
+                            <div class="solo-comment-text"><%= comments[index].comment %></div> 
+                        
+                        </div>
+
+                    <% } %>
                 <!-- <p class="solo-comment"></p>  -->
                 <!-- <p class="solo-comment"></p>  -->
 
             <% } %> 
-
+            
         </div>
 
     </div>

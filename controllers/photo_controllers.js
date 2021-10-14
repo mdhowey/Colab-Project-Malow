@@ -39,7 +39,7 @@ router.get('/:photoId', async function (req, res) {
         const foundPhoto = await Photo.findById(req.params.photoId)
             console.log(`foundPhoto is: ${foundPhoto._id}`);
             
-            const foundComments = await Comment.findOne({ photoId: foundPhoto._id });
+            const foundComments = await Comment.find({ photoId: foundPhoto._id });
                 console.log(foundComments)
                 const context = {
                     photo: foundPhoto,
