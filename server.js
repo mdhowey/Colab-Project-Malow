@@ -49,6 +49,7 @@ app.use((req, res, next) => {
 
 app.use('/users', controllers.user);
 app.use('/photos', controllers.photo);
+app.use('/comments', controllers.comment);
 app.use('/', controllers.auth);
 
 // == Login Page == //

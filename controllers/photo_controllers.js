@@ -85,10 +85,11 @@ router.put('/:photoId', (req, res) => {
 /* Like Update */
 router.put(':/photoId/like', (req, res) => {
     console.log(req.body.like + 1);
+    let incrementLike = req.body.like++; 
     Photo.findByIdAndUpdate(
         req.params.photoId,
         {
-            $set: {like: req.body.like + 1}
+            $set: {like: incrementLike}
         },
         {
             new: true

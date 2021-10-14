@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <%- include('../partials/head.ejs', { page: 'View Photo' }) %> 
 
-<%- include('../partials/main_nav.ejs') %>
+<body>
+
+    <%- include('../partials/main_nav.ejs') %>
 
     <div class="solo-photo-container">
 
@@ -21,7 +24,7 @@
 
                 <span id="like-count">Likes: <%= photo.like %></span>  
                 
-                <form action="/photos/<%= photo.id %>/?_method=PUT" method="GET">
+                <form action="/photos/<%= photo.id %>/comment?_method=PUT" method="GET">
                     <input type="submit" id="photo-comment" value="Comment">
                 </form>
 
@@ -72,9 +75,6 @@
                         </div>
 
                     <% } %>
-                <!-- <p class="solo-comment"></p>  -->
-                <!-- <p class="solo-comment"></p>  -->
-
             <% } %> 
             
         </div>

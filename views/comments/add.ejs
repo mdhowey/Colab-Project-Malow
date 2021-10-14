@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    
+<%- include('../partials/head.ejs', { page: 'View Photo' }) %> 
+    
+<body>
+
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="solo-photo-container">
+
+        <div class="solo-photo-card">
+            <img src="<%= photo.img %>" alt="Solo photo"/>
+        </div>  
+
+    </div>
+
+    <div class="solo-comment-container">
+
+        <div class="input-card">
+            <label for="description" class="form-label">Comment: </label><br>
+            <textarea type="text" name="description" class="form-input" id="photo-comment-input" placeholder="Tell us about it..." rows="6"></textarea>
+        </div>
+
+        <input id="comment_submit" type="submit" class="submit" name="newComment_submit" value="Post Comment">
+        
+    </div>
+
+<%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

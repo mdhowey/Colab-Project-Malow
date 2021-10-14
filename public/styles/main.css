@@ -21,14 +21,14 @@ body {
     box-shadow: 0.1em 0.1em 0.4em #7FFF0D;
 }
 
-.col-30 {
-    width: 30%;
+.col-60 {
+    width: 60%;
     display: flex;
     padding-left: 1em;
 }
 
-.col-70 {
-    width: 70%;
+.col-40 {
+    width: 40%;
     display: flex;
     justify-content: flex-end;
     padding-right: 1em;
@@ -431,14 +431,17 @@ ul {
 }
 
 .solo-comment-container {
-    width: 42vw;
-    height: auto;
-    margin-bottom: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
 }
 
 .comment-content-container {
-    background-color: #802164;
-    margin: 00.5em;
+    background-color: #CC3FA3;
+    margin-bottom: 0.5em;
+    width: 42vw;
 }
 
 .solo-comment-username, 
@@ -450,11 +453,28 @@ ul {
 .solo-comment-username {
     font-size: 1.8em;
     color: #7FFF0D;
+    padding-bottom: 0;
+}
+
+.solo-comment-timestamp {
+    color: #202225;
+    font-size: 1.1em;
 }
 
 .solo-comment-text {
+    font-size: 1.3em;
     color: #FFF;
 }
+
+/* Photo Comment View */
+#photo-comment-input {
+    width: 41vw;
+}
+
+#comment_submit {
+    margin-top: 1.5em;
+}
+
 /* Delete View */
 .delete-btn-container {
     display: flex;
