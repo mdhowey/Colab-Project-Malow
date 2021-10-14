@@ -2,51 +2,62 @@ const express = require('express');
 const router = express.Router();
 const { Photo, User, Comment } = require('../models');
 
-Comment.deleteMany({}, function (error, deletedComments) {
-    if (error) {
-        return console.log(error);
-    }
-    Comment.insertMany(
-        [
-            {
-                userId: '6165daefd9a3f375c7ba8e25',
-                photoId: '6166496fc6cd57a2ae91fea8',
-                comment: 'test comment for the above photo 1; userId: 6165daefd9a3f375c7ba8e25; photoId: 6166496fc6cd57a2ae91fea8',
-            },
-            {
-                userId: '6165daefd9a3f375c7ba8e25',
-                photoId: '6166496fc6cd57a2ae91feab',
-                comment: 'test comment for the above photo 2; userId: 6165daefd9a3f375c7ba8e25, photoId: 6166496fc6cd57a2ae91feab',
-            },
-            {
-                userId: '6165daefd9a3f375c7ba8e25',
-                photoId: '6166496fc6cd57a2ae91fea8',
-                comment: 'test comment for the above photo 3; userId: 6165daefd9a3f375c7ba8e25, photoId: 6166496fc6cd57a2ae91fea8',
-            },
-            {
-                userId: '6165daefd9a3f375c7ba8e25',
-                photoId: '6166496fc6cd57a2ae91fead',
-                comment: 'test comment for the above photo 4; userId: 6165daefd9a3f375c7ba8e25, photoId: 6166496fc6cd57a2ae91fead',
-            },
-            {
-                userId: '6165d13dd8c52d1da3bdeeb4',
-                photoId: '6166496fc6cd57a2ae91fea8',
-                comment: 'test comment for the above photo 5; userId: 6165d13dd8c52d1da3bdeeb4, photoId: 6166496fc6cd57a2ae91fea8',
-            },
-            {
-                userId: '6165cf34f79912fce8ed9808',
-                photoId: '61664da28459053de49de546',
-                comment: 'test comment for the above photo 6; userId: 6165cf34f79912fce8ed9808, photoId: 61664da28459053de49de546',
-            },
-        ],
-    ),
-    function (error, createdComments) {
-        if (error) {
-            return console.log(error);
+/* Index Route */
+router.get('/', function (req, res) {
+    
+    Comment.find({}, (error, comments) => {
+        if (error) return console.log(error);
+        const context = {
+            comments,
         }
-        console.log('// ==== Seeded Comments ==== //');
-        console.log(createdComments);
-    };
+
+        res.render('comments/index', context);
+    });
+});
+
+/* Comment */
+router.get('/:photoId', (req, res) => {
+    Photo.findById(req.params.photoId, (error, foundPhoto) => {
+        if (error) return console.log(error);
+
+        return res.render('comments/add', { photo: foundPhoto });
+    });
+});
+
+/* Post Comment */
+router.post('/:photoId', (req, res) => {
+    // console.log('req.body', req.body);
+    const comment = {
+        ...req.body,
+        username: req.session.currentUser.username,
+    }
+
+    Comment.create(comment, (error, newComment) => {
+        if (error) return console.log(error);
+
+        console.log(newComment);
+
+        Comment.find({ photo: req.params.photoId }, (error, foundPhoto) => {
+            if (error) return console.log(error);
+            
+            const context = {
+                photo: foundPhoto,
+                comments: comment,
+            };
+
+            return res.render('comments/show.ejs', { comments: comment })
+        });
+    });
+});
+
+/* Delete Comment */
+router.delete('/:commentId', (req, res) => {
+    Comment.findByIdAndDelete( req.params.commentId, (error, deletedComment) => {
+        if (error) return console.log(error);
+    
+        console.log(deletedComment);
+        return res.redirect('/comments');
+    });
 });
 
 module.exports = router;

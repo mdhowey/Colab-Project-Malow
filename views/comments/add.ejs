@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    
+<%- include('../partials/head.ejs', { page: 'Comment' }) %> 
+    
+<body>
+
+    <%- include('../partials/main_nav.ejs') %>
+
+    <div class="solo-photo-container">
+
+        <div class="solo-photo-card">
+            <img src="<%= photo.img %>" alt="Solo photo"/>
+        </div>  
+
+    </div>
+
+    <div class="solo-comment-container">
+
+        <form action="/comments/<%= photo.id %>" method="POST" id="new-photo">
+            <div class="input-card">
+                <label for="comment" class="form-label">Comment: </label><br>
+                <textarea type="text" name="comment" class="form-input" id="photo-comment-input" placeholder="Tell us about it..." rows="6"></textarea>
+            </div>
+
+            <button id="comment_submit" type="submit" class="submit">Post Comment</button>
+
+            <input type="hidden" name="photoId" value="<%= photo._id %>" />
+        </form>
+
+    </div>
+
+<%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

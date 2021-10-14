@@ -33,19 +33,32 @@ router.post('/', (req, res) => {
     });
 });
 
+/* Like Update */
+router.post('/like/:photoId', (req, res) => { 
+    Photo.findById(
+        req.params.photoId,
+        (error, foundPhoto) => {
+            if(error) return console.log(error);
+            // let like = ;
+            foundPhoto.like = foundPhoto.like += 1;
+            console.log(`this is the like increment ${foundPhoto}`)
+            foundPhoto.save(); 
+            return res.redirect(`/photos/${req.params.photoId}`);
+        }
+    );
+});
+
 // == Show Solo Photo == //
 router.get('/:photoId', async function (req, res) {
     try {
         const foundPhoto = await Photo.findById(req.params.photoId)
             console.log(`foundPhoto is: ${foundPhoto._id}`);
             
-            const foundComments = await Comment.findOne({ photoId: foundPhoto._id });
-                console.log(foundComments)
+            const foundComments = await Comment.find({ photoId: foundPhoto._id });
                 const context = {
                     photo: foundPhoto,
                     comments: foundComments,
                 };
-                console.log(context)
 
                 return res.render('photos/show_photo', context)
     }

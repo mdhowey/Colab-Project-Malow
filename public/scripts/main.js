@@ -15,5 +15,3 @@ window.onclick = function(e) {
         }
     }
 } 
-
-// 3CA55C
