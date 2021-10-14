@@ -63,6 +63,4 @@ app.get('/*', (req, res) => {
 });
 
 // ==== Listening on PORT ==== //
-app.listen(PORT, (req, res) => {
-    console.log(`You are currently partying on port: ${PORT}`);
-});
+app.listen(process.env.PORT || 3000);
