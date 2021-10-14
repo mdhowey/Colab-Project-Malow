@@ -3,8 +3,8 @@ const express = require('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-
-const PORT = 4000;
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
 // ==== Internal Dependencies ==== //
 const controllers = require('./controllers');
@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 
 app.use(
     session({
-        store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/pikchu' }),
+        store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/pikchu' }),
         secret: 'super secret',
         resave: false,
         saveUninitialized: false,
@@ -63,4 +63,4 @@ app.get('/*', (req, res) => {
 });
 
 // ==== Listening on PORT ==== //
-app.listen(process.env.PORT || 3000);
+app.listen(PORT);
