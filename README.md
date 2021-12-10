@@ -1,31 +1,31 @@
-# Colab-Project-Malow
-## PikChu
+# PikCh
 
-wireframe: 
-https://whimsical.com/project-1-AuUUV5sGDmq32S86H4Yu27 
+## Description
 
-ERD 
-https://lucid.app/lucidchart/252bed58-9751-46e9-985b-df991028d609/edit?viewport_loc=180%2C59%2C1878%2C851%2C0_0&invitationId=inv_067ed9f7-ec44-46d2-9a3b-4d4286097c65  
+This is a basic instagram-esque social media application that was created to show proficiency working with the MEN stack. 	
 
-This is a basic instagram-esque social media application that was created to show proficiency working with the MEN stack. 
+### The tech stack: 
+  We used Express in the front end, Node.js for building the back, and MongoDB in conjunction with Mongoose for the database.
 
-Users are able to create an account with email and password. 
+## Usage
 
-Users are able to upload photos with URLs, comment on those photos and like those photos. 
+Users are able to create accounts --> email and password is used for login.
 
-A user is also able to delete, edit and view their photos. 
+Users are able to: 
+  1) Users are able to create an account with email and password. 
+  2) Users are able to upload photos with URLs, comment on those photos and like those photos. 
+  3) A user is also able to delete, edit and view their photos. 
+  4) Comments can be deleted. User accounts can also be deleted.
 
-Comments can be deleted. User accounts can also be deleted.
+At this time (10-12-21), users are not able to friend each other and see other user's profiles.** 
 
-This application uses auth via express-sessions which allows the user to sign out of their account. 
+**See Roadmap below for more information on the future of the project.
 
-Frontend: Express
-Backend: Node.js
-Database: MongoDB
+## Support
 
-We started out with a wireframe that broke down the views and the user funcitonality that would be needed.
-After server was set up, we proceed to build one model at a time, handle routes and dependencies as they were needed.
-Connecting the models together proved to be somewhat difficult. There were some issues initially with naming conventions.
+For any questions regarding this project, please email me directly at dev.howey@gmail.com
+
+## Roadmap
 
 Auth was a challenging portion of this project. We would still like to develop a more intuitive navbar, one which 
 changes functionality in accordance with the user session. For example, if there no user signed in, the navbar
@@ -36,4 +36,20 @@ In addition to the more intuitive navbar, we would have also like to have made t
 We were given the idea to store the session.currentUser in an array, allowing it to be easier to keep track of 
 which users had liked a certain photo. 
 
-To be continued... 
+It would also be great if users were able to friend one another. We are still working on that.
+
+## Contributing
+
+Anyone interested in contributing is welcome to do so. Simply submit a pull request, and it will be reviewed promptly.
+
+Please submit a pull request, and I'll be sure to review it ASAP. I am on GitHub daily.
+
+## Authors and acknowledgment
+
+A sincere thank you to Anthony Malary for being a great partner to have on this project.
+
+## License
+
+Apache License, Version 2.0 **
+
+**To review the licensing, please visit https://www.apache.org/licenses/LICENSE-2.0.txt 
